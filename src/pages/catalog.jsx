@@ -8,6 +8,9 @@ function Catalog() {
         <div className="catalog-page">
             <h1>Catalog Page</h1>
             <Product />
+            <Product />
+            <Product />
+            <Product />
         </div>
     );
 }
