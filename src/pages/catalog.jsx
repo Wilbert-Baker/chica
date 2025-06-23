@@ -3,7 +3,7 @@
 //please try this but in the the products
 import { useState, useEffect } from "react";
 import Product from "../components/product";
-import "./catalog.css";
+import "../pages/catalog.css";
 import DataService from "../service/data";
 
 function Catalog() {
@@ -27,7 +27,9 @@ function Catalog() {
         <div className="catalog-page">
             <h1>Catalog Page</h1>
             <h5>Hello we have {items.length} new products</h5>   
-            {/* render products according to the amouth of items that you have */}
+            {/* render products according to the amount of items that you have */}
         </div>
     );
 }
+
+export default Catalog;
