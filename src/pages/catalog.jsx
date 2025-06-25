@@ -8,11 +8,13 @@ import DataService from "../service/data";
 
 function Catalog() {
     const [items, setItems] = useState([]);
+    const [catetegory, setCategory] = useState([]);
+    const [filterv, setFilter] = useState([]);
 
-    useEffect(function(){
+    useEffect(function () {
         console.log("component loaded");
         loadCatalog();
-    },[]);
+    }, []);
 
     function loadCatalog(){
         //get the products 
@@ -21,17 +23,48 @@ function Catalog() {
         console.log(productEnd);
         setItems(productEnd);
         console.log(items);
+        let catetegoryEnd = ["Luxurycars", "cars", "trucks", "SUVs"];
+        setCategory(categoryEnd);
+        
     }
+    function filter(cat) {
+        let list = [];
+        for (let i=0; i < items.length; i++) {
+            let temp = items[i];
+            if (temp, category === cat) {
+                list.push(temp);
 
-    return(
+            }
+
+        }
+        setFilter(list);
+        
+    }
+    //useEffect is a hook that allows you to run coge when the component is loaded
+
+    return (
         <div className="catalog-page">
             <h1>Catalog Page</h1>
             <h5>Hello we have {items.length} new products</h5>
-            <div className="products">
-                {items.map(function(item)=> (
+            {/* render products according to the amount of items you have */}
+            <br />
+            {catetegory.map((tempcat) => (
+                <button onClick={() => filter(tempCat)} className="btn btn-sm btn secondary btn-filter">
+                      {" "}
+                      {Cat} {" "}
+                      </button>
+            ))}
+            <br /> 
+            {filterV.map((temp) = (
+                <Product x={temp} key={temp._id}></Product>
+            ))}
+            <br />
+            {/* for each element that i have on an {array} i want 
+                to create a temporal variable that will be transform into  something */}
+            {/* props its somthing that comes with react that helps me to share data betweeen components */}
                 
-            </div>
-        </div>
+            </div>            
+        
     );
 }
 

@@ -1,7 +1,7 @@
 let catalog = [
     {
         "title":"BMW",
-        "category":"cars",
+        "category":"Luxurycars",
         "price": 15, 
         "image":"picture",
         "_id":"1" //the id should be unique, (it cannot be repeated)
@@ -15,14 +15,14 @@ let catalog = [
     },
     {
         "title":"cheverolet",
-        "category":"cars",
+        "category":"trucks",
         "price": 15, 
         "image":"picture",
         "_id":"3" //the id should be unique, (it cannot be repeated)
     },
     {
         "title":"Buick",
-        "category":"cars",
+        "category":"SUVs",
         "price": 15, 
         "image":"picture",
         "_id":"4" //the id should be unique, (it cannot be repeated)
