@@ -25,8 +25,10 @@ let catalog = [
         "category":"SUVs",
         "price": 15, 
         "image":"picture",
-        "_id":"4" //the id should be unique, (it cannot be repeated)
+        "_id":"4"//the id should be unique, (it cannot be repeated)
+        
     },
+
 ];
 
 class DataService {
@@ -35,4 +37,10 @@ class DataService {
         return catalog;
     }
 }
+
+export default DataService;
+
+    
+        
+
 

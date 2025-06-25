@@ -3,70 +3,61 @@
 //please try this but in the the products
 import { useState, useEffect } from "react";
 import Product from "../components/product";
-import "../pages/catalog.css";
+import "./catalog.css";
 import DataService from "../service/data";
 
 function Catalog() {
     const [items, setItems] = useState([]);
-    const [catetegory, setCategory] = useState([]);
-    const [filterv, setFilter] = useState([]);
+    const [category, setCategory] = useState([]);
+    const [filterV, setFilter] = useState([]);
 
     useEffect(function () {
         console.log("component loaded");
         loadCatalog();
     }, []);
 
-    function loadCatalog(){
-        //get the products 
+    function loadCatalog() {
+        //get the products
         let service = new DataService();
         let productEnd = service.getProducts();
         console.log(productEnd);
         setItems(productEnd);
         console.log(items);
-        let catetegoryEnd = ["Luxurycars", "cars", "trucks", "SUVs"];
+        let categoryEnd = ["luxurycars", "cars", "trucks", "SUVs"];
         setCategory(categoryEnd);
-        
     }
     function filter(cat) {
         let list = [];
-        for (let i=0; i < items.length; i++) {
+        for (let i = 0; i < items.length; i++) {
             let temp = items[i];
-            if (temp, category === cat) {
+            if (temp.category === cat) {
                 list.push(temp);
-
             }
-
         }
         setFilter(list);
-        
     }
-    //useEffect is a hook that allows you to run coge when the component is loaded
-
+    //useEffect is a hook that allows you to run code when the component is loaded
     return (
         <div className="catalog-page">
             <h1>Catalog Page</h1>
             <h5>Hello we have {items.length} new products</h5>
-            {/* render products according to the amount of items you have */}
+            {/* render products according to the amouth of items that you have */}
             <br />
-            {catetegory.map((tempcat) => (
-                <button onClick={() => filter(tempCat)} className="btn btn-sm btn secondary btn-filter">
-                      {" "}
-                      {Cat} {" "}
-                      </button>
+            {category.map((tempCat) => (
+                <button onClick={()=>filter(tempCat)} className="btn btn-sm btn-secundary btn-filter">
+                    {" "}
+                    {tempCat}{" "}
+                </button>
             ))}
-            <br /> 
-            {filterV.map((temp) = (
+            <br />
+            {filterV.map((temp) => (
                 <Product x={temp} key={temp._id}></Product>
             ))}
-            <br />
-            {/* for each element that i have on an {array} i want 
-                to create a temporal variable that will be transform into  something */}
-            {/* props its somthing that comes with react that helps me to share data betweeen components */}
-                
-            </div>            
-        
+            {/* for each element that i have on an {array} i want
+to create a temporal variable that will be transform into something*/}
+            {/* props its something that comes with react that helps me to share data between 
+component */}
+        </div>
     );
 }
-
-
 export default Catalog;
