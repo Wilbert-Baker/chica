@@ -16,7 +16,7 @@ function Catalog() {
 
     function loadCatalog(){
         //get the products 
-        let service = new DataService;
+        let service = new DataService();
         let productEnd = service.getProducts();
         console.log(productEnd);
         setItems(productEnd);
@@ -26,10 +26,14 @@ function Catalog() {
     return(
         <div className="catalog-page">
             <h1>Catalog Page</h1>
-            <h5>Hello we have {items.length} new products</h5>   
-            {/* render products according to the amount of items that you have */}
+            <h5>Hello we have {items.length} new products</h5>
+            <div className="products">
+                {items.map(function(item)=> (
+                
+            </div>
         </div>
     );
 }
+
 
 export default Catalog;
